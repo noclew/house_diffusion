@@ -16,7 +16,7 @@ import cairosvg
 import imageio
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-from pytorch_fid.fid_score import calculate_fid_given_paths
+from fid_score import calculate_fid_given_paths
 from house_diffusion.rplanhg_datasets import load_rplanhg_data
 from house_diffusion import dist_util, logger
 from house_diffusion.script_util import (
