@@ -352,7 +352,7 @@ def main():
             graph_errors.extend(graph_error)
             tmp_count+=sample_gt.shape[1]
         logger.log("sampling complete")
-        fid_score = calculate_fid_given_paths(['outputs/gt', 'outputs/pred'], 64, 'cuda', 2048)
+        fid_score = calculate_fid_given_paths(['outputs/gt', 'outputs/pred'], 5, 'cuda', 2048)
         print(f'FID: {fid_score}')
         print(f'Compatibility: {np.mean(graph_errors)}')
         errors.append([fid_score, np.mean(graph_errors)])
