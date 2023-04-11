@@ -85,7 +85,7 @@ get_one_hot = lambda x, z: np.eye(z)[x]
 class RPlanhgDataset(Dataset):
     def __init__(self, set_name, analog_bit, target_set, non_manhattan=False):
         super().__init__()
-        base_dir = '/datasets/rplan'
+        base_dir = '../../content/house_diffusion/datasets/rplan'
         self.non_manhattan = non_manhattan
         self.set_name = set_name
         self.analog_bit = analog_bit
