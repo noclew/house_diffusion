@@ -140,7 +140,7 @@ def estimate_graph(indx, polys, nodes, G_gt, ID_COLOR, draw_graph, save_svg):
                     p1 = geom_factory(lgeos.GEOSMakeValid(p1._geom))
                 if not p2.is_valid:
                     p2 = geom_factory(lgeos.GEOSMakeValid(p2._geom))
-                if p1.union(p2).area != 0
+                if p1.union(p2).area != 0:
                     iou = p1.intersection(p2).area/ p1.union(p2).area
                 else:
                     iou = 0
