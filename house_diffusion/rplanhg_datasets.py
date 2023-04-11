@@ -119,6 +119,7 @@ class RPlanhgDataset(Dataset):
             cnt=0
             for line in tqdm(lines):
                 cnt=cnt+1
+                line = line.replace("\n", "")
                 file_name = f'{base_dir}/{line}'
                 rms_type, fp_eds,rms_bbs,eds_to_rms=reader(file_name) 
                 fp_size = len([x for x in rms_type if x != 15 and x != 17])
