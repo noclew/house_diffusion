@@ -59,7 +59,7 @@ def main():
         fp16_scale_growth=args.fp16_scale_growth,
         schedule_sampler=schedule_sampler,
         weight_decay=args.weight_decay,
-        lr_anneal_steps=200,
+        lr_anneal_steps=400000,
         analog_bit=args.analog_bit,
     ).run_loop()
 
