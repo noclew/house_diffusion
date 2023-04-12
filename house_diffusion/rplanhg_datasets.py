@@ -511,7 +511,10 @@ def is_adjacent(box_a, box_b, threshold=0.03):
 
 def reader(filename):
     with open(filename) as f:
-        info =json.load(f)
+        try:
+            info =json.load(f)
+        except:
+            print(filename)
         rms_bbs=np.asarray(info['boxes'])
         fp_eds=info['edges']
         rms_type=info['room_type']
