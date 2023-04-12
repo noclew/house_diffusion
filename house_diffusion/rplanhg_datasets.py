@@ -241,7 +241,8 @@ class RPlanhgDataset(Dataset):
             self.gen_masks = gen_masks
             self.num_coords = 2
             self.graphs = graphs
-
+            if not os.path.exists('processed_rplan'):
+                os.makedirs('processed_rplan')
             np.savez_compressed(f'processed_rplan/rplan_{set_name}_{target_set}', graphs=self.graphs, houses=self.houses,
                     door_masks=self.door_masks, self_masks=self.self_masks, gen_masks=self.gen_masks)
             if self.set_name=='train':
