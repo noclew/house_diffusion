@@ -149,7 +149,10 @@ class RPlanhgDataset(Dataset):
                 br -= shift
 
                 # build input graph
-                graph_nodes, graph_edges, rooms_mks = self.build_graph(rms_type, fp_eds, eds_to_rms)
+                try:
+                    graph_nodes, graph_edges, rooms_mks = self.build_graph(rms_type, fp_eds, eds_to_rms)
+                except:
+                    continue
 
                 house = []
                 for room_mask, room_type in zip(rooms_mks, graph_nodes):
