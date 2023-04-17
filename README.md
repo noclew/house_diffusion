@@ -7,15 +7,16 @@
 Our implementation is based on the public implementation of [guided-diffusion](https://github.com/openai/guided-diffusion). For installation instructions, please refer to their repository. Keep in mind that our current version has not been cleaned and some features from the original repository may not function correctly.
 
 ```
-git clone https://github.com/aminshabani/house_diffusion.git
+git clone https://github.com/lkoetz/house_diffusion.git
 cd house_diffusion
 pip install -r requirements.txt
 pip install -e .
 ```
 **2. Download the dataset and create the datasets directory**
 
-- You can download the datasets from [RPLAN's website](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html) or by filling [this](https://docs.google.com/forms/d/e/1FAIpQLSfwteilXzURRKDI5QopWCyOGkeb_CFFbRwtQ0SOPhEg0KGSfw/viewform) form.
+- You can download the full RPLAN dataset from [RPLAN's website](http://staff.ustc.edu.cn/~fuxm/projects/DeepLayout/index.html) or by filling [this](https://docs.google.com/forms/d/e/1FAIpQLSfwteilXzURRKDI5QopWCyOGkeb_CFFbRwtQ0SOPhEg0KGSfw/viewform) form.
 - We also use data preprocessing from House-GAN++ which you can find in [this](https://github.com/sepidsh/Housegan-data-reader) link.
+- We have provided a preprocessed dataset containing 18,000 samples in this repository (rplan.zip). Note that our preprocessing was based on the preprocessing by House-GAN++. Our preprocessing additionally removed unrealistic floor plans.
 Put all of the processed files from the downloaded dataset in a `datasets` folder in the current directory:
 
 ```
@@ -30,7 +31,7 @@ house_diffusion
 └── scripts
 └── ...
 ```
-- We have provided a temporary model that you can download from [Google Drive](https://drive.google.com/file/d/16zKmtxwY5lF6JE-CJGkRf3-OFoD1TrdR/view?usp=share_link). 
+- We have provided two temporary pretrained models (20,000 steps and 40,000 steps) that you can download from [Google Drive](https://drive.google.com/file/d/1mvw-2IzegJ8-Xm_c2zk8Z27ALEizGPt3/view?usp=share_link) and [Google Drive](https://drive.google.com/file/d/18yInP0Hi4Zl55IIKJm9pCayQpdoB-8Yz/view?usp=sharing). 
 
 ## Running the code
 
@@ -52,10 +53,9 @@ You can also run the corresponding code from `scripts/script.sh`.
 ## Citation
 
 ```
-@article{shabani2022housediffusion,
-  title={HouseDiffusion: Vector Floorplan Generation via a Diffusion Model with Discrete and Continuous Denoising},
-  author={Shabani, Mohammad Amin and Hosseini, Sepidehsadat and Furukawa, Yasutaka},
-  journal={arXiv preprint arXiv:2211.13287},
+@article{SchwietertandKoetzier2023housediffusion,
+  title={Reproduction of HouseDiffusion: Vector Floorplan Generation via a Diffusion Model with Discrete and Continuous Denoising},
+  author={Schwietert, Renee and Koetzier, Lennart},
   year={2022}
 }
 ```
