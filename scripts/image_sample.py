@@ -95,6 +95,7 @@ def get_graph(indx, g_true, ID_COLOR, draw_graph, save_svg):
         pos = nx.nx_agraph.graphviz_layout(G_true, prog='neato')
         nx.draw(G_true, pos, node_size=node_size, linewidths=linewidths, node_color=colors_H, font_size=14, font_color='white',\
                 font_weight='bold', edgecolors=edgecolors, width=4.0, with_labels=False)
+        save_svg = False
         if save_svg:
             plt.savefig(f'outputs/graphs_gt/{indx}.svg')
         else:
@@ -264,6 +265,7 @@ def save_samples(
             images.append(Image.open(io.BytesIO(cairosvg.svg2png(draw.asSvg()))))
             images2.append(Image.open(io.BytesIO(cairosvg.svg2png(draw2.asSvg()))))
             images3.append(Image.open(io.BytesIO(cairosvg.svg2png(draw3.asSvg()))))
+            save_svg = False
             if k==sample.shape[0]-1 or True:
                 if save_edges:
                     draw.saveSvg(f'outputs/{ext}/{tmp_count+i}_{k}_{ext}.svg')
