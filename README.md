@@ -64,6 +64,7 @@ To specify the number of corners in the polygonal a probabilistic pick is done o
 **What is the architecture of the model?**
 
 ![image](https://user-images.githubusercontent.com/129068811/234509545-4bb7a674-2d06-4510-b496-4826f1d34bfd.png)
+
 The forward process of the HouseDiffusion architecture takes a data sample and generates a noisy sample from it by sampling a Gaussian noise with a cosine noise schedule. The reverse process uses a neural network with a Transformer that predicts the previous floorplan representation given the current representation.
 Feature embedding
 
@@ -97,10 +98,18 @@ The results of the experiments are shown in Table 1. The mean and standard devia
 | ----------------------- |:---------------------------:| ---------------------------:|----------------------------------------------:|
 | Dataset                 | Model                       | Mean + standard deviation   | Mean + standard deviation                     |
 | ----------------------- |:---------------------------:| ---------------------------:|----------------------------------------------:|
-| RPLAN (18,000 samples)  | Ours (20,000 steps)         | $50.68 ± 1.63               | $5.53 ± 0.11                                  |
-| RPLAN (18,000 samples)  | Ours (40,000 steps)         | $47.78 ± 0.98               | $5.35 ± 0.24                                  |
-| RPLAN (250,000 samples) | HouseDiffusion (250k steps) | $30.54 ± 0.61               | $2.48 ± 0.11                                  |
+| RPLAN (18,000 samples)  | Ours (20,000 steps)         |  50.68 ± 1.63               |  5.53 ± 0.11                                  |
+| RPLAN (18,000 samples)  | Ours (40,000 steps)         |  47.78 ± 0.98               |  5.35 ± 0.24                                  |
+| RPLAN (250,000 samples) | HouseDiffusion (250k steps) |  30.54 ± 0.61               |  2.48 ± 0.11                                  |
 | ----------------------- |:---------------------------:| ---------------------------:|----------------------------------------------:|
+
+| Dataset                 | Model                       | Diversity (FID) Mean + Std   | Compatibility (Graph Modified Edit Distance) Mean + Std |
+| ----------------------- | --------------------------- | ---------------------------- | -------------------------------------------------------- |
+| RPLAN (18,000 samples)  | Ours (20,000 steps)         |  50.68 ± 1.63                |  5.53 ± 0.11                                             |
+| RPLAN (18,000 samples)  | Ours (40,000 steps)         |  47.78 ± 0.98                |  5.35 ± 0.24                                             |
+| RPLAN (250,000 samples) | HouseDiffusion (250k steps) |  30.54 ± 0.61                |  2.48 ± 0.11                                             |
+
+
 
 Table 1: Results of diversity and compatibility
 
